@@ -24,4 +24,8 @@ public class Accumulator extends Product {
                 this.getManufacturer(),
                 this.getCapacity());
     }
+    @Works
+    public  void charge(){
+        System.out.println("Working on " + getCard());
+    }
 }

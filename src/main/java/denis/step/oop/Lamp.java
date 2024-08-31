@@ -1,7 +1,8 @@
 package denis.step.oop;
-
-public class Lamp extends Product {
+@Warranty(2)
+public class Lamp extends Product implements Testable {
     private  double power;
+
     public Lamp(String manufacturer,double power) {
         super.setManufacturer(manufacturer);
         this.setPower(power);
@@ -24,5 +25,14 @@ public class Lamp extends Product {
                 " Power: %.1f W",
                 this.getManufacturer(),
                 this.getPower());
+    }
+
+    @Override
+    public void test() {
+        System.out.println("Testing lamp" + getCard());
+    }
+    @Works( "as lamp")
+    public  void shine(){
+        System.out.println("Working on " + getCard());
     }
 }
