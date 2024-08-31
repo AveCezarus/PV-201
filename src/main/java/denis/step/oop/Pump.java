@@ -1,8 +1,8 @@
 package denis.step.oop;
 
 import java.util.Locale;
-
-public class Pump extends Product {
+@Warranty(3)
+public class Pump extends Product implements Manual{
     int productivity;
     public Pump(String manufacturer,int productivity) {
         super.setManufacturer(manufacturer);
@@ -23,5 +23,9 @@ public class Pump extends Product {
                 Locale.ROOT,
                 "Pump: '%s', Productivity: %d l/h", super.getManufacturer(),
                 this.getProductivity());
+    }
+    @Works("as pump")
+    public  void pump(){
+        System.out.println("Working on " + getCard());
     }
 }
