@@ -1,6 +1,8 @@
 package denis.step;
 
 import com.google.inject.Guice;
+import denis.step.db.DbDemo;
+import denis.step.ioc.DbModule;
 import denis.step.ioc.IocDemo;
 import denis.step.ioc.ServicesModule;
 
@@ -15,6 +17,9 @@ public class App
     {
         //new Shop().Run();
         //new IocDemo(new Md5HashService()).run();
-        Guice.createInjector(new ServicesModule()).getInstance(IocDemo.class).run();
+        boolean showJournal = args.length > 0 && "--journal".equals(args[0]);
+        Guice.createInjector(new ServicesModule(), new DbModule())
+                .getInstance(DbDemo.class)
+                .run(showJournal);
     }
 }
