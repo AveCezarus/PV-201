@@ -1,12 +1,13 @@
 package denis.step.db;
 
 import com.google.inject.Inject;
-
 import java.sql.*;
+import java.util.Map;
 
 public class DbDemo {
     @Inject
     private Connection connection;
+
     public void run(boolean showJournal) {
         if (showJournal) {
             showJournal();
